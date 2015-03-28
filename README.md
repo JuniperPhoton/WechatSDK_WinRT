@@ -1,0 +1,1 @@
+# WechatSDK_WinRT-
