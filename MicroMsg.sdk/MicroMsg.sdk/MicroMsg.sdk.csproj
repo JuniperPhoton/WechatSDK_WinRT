@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22F41ADB-DD64-44D5-9C52-D2A31050503C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MicroMsg.sdk</RootNamespace>
+    <AssemblyName>MicroMsg.sdk</AssemblyName>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\BaseReqP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\BaseRespP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\GetMessageFromWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\GetMessageFromWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendAuthReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendAuthResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendMessageToWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendMessageToWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendPayReqP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\SendPayRespP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\ShowMessageFromWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\ShowMessageFromWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\TransactDataP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXAppExtendMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXEmojiMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXFileMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXImageMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXMusicMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXTextMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXVideoMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf.Proto\WXWebpageMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\BaseReqP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\BaseRespP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\GetMessageFromWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\GetMessageFromWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendAuthReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendAuthResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendMessageToWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendMessageToWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendPayReqP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\SendPayRespP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\ShowMessageFromWXReq.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\ShowMessageFromWXResp.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\TransactDataP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXAppExtendMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXEmojiMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXFileMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXImageMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXMusicMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXTextMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXVideoMessageP.cs" />
+    <Compile Include="MicroMsg.sdk.protobuf\WXWebpageMessageP.cs" />
+    <Compile Include="MicroMsg.sdk\ABCDStruct.cs" />
+    <Compile Include="MicroMsg.sdk\BaseReq.cs" />
+    <Compile Include="MicroMsg.sdk\BaseResp.cs" />
+    <Compile Include="MicroMsg.sdk\ConstantsAPI.cs" />
+    <Compile Include="MicroMsg.sdk\ErrorCode.cs" />
+    <Compile Include="MicroMsg.sdk\FileUtil.cs" />
+    <Compile Include="MicroMsg.sdk\GetMessageFromWX.cs" />
+    <Compile Include="MicroMsg.sdk\IWXAPI.cs" />
+    <Compile Include="MicroMsg.sdk\MD5Util.cs" />
+    <Compile Include="MicroMsg.sdk\SendAuth.cs" />
+    <Compile Include="MicroMsg.sdk\SendMessageToWX.cs" />
+    <Compile Include="MicroMsg.sdk\SendPay.cs" />
+    <Compile Include="MicroMsg.sdk\ShowMessageFromWX.cs" />
+    <Compile Include="MicroMsg.sdk\TransactData.cs" />
+    <Compile Include="MicroMsg.sdk\WXAPIFactory.cs" />
+    <Compile Include="MicroMsg.sdk\WXApiImplV1.cs" />
+    <Compile Include="MicroMsg.sdk\WXAppExtendMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXBaseMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXEmojiMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXEntryBasePage.cs" />
+    <Compile Include="MicroMsg.sdk\WXException.cs" />
+    <Compile Include="MicroMsg.sdk\WXFileMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXImageMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXMusicMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXTextMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXVideoMessage.cs" />
+    <Compile Include="MicroMsg.sdk\WXWebpageMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Google.ProtocolBuffersLite, Version=2.4.1.473, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Google.ProtocolBuffersLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
