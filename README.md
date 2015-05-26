@@ -11,23 +11,23 @@ By using this SDK, please follow the steps(Assume that you are familar with Visu
 >using MicroMsg;
 
           try
-            {
-            int scene = SendMessageToWX.Req.WXSceneChooseByUser; //发给微信朋友
+          {
+               int scene = SendMessageToWX.Req.WXSceneChooseByUser; //Choose by user
             
-            var message = new WXImageMessage();
-            message.Title = "Title";
+               var message = new WXImageMessage();
+               message.Title = "Title";
             
-            message.ImageData=xxxx;
-            message.ThumbData=xxxx;
+               message.ImageData=xxxx;
+               message.ThumbData=xxxx;
             
-            SendMessageToWX.Req req = new SendMessageToWX.Req(message, scene);
-            var api = WXAPIFactory.CreateWXAPI("your app id ");
-            await api.SendReq(req);
-            }
-            catch (WXException ex)
-            {
-            //do sth.
-            }
+               SendMessageToWX.Req req = new SendMessageToWX.Req(message, scene);
+               var api = WXAPIFactory.CreateWXAPI("your app id ");
+               await api.SendReq(req);
+          }
+          catch (WXException ex)
+          {
+               //do sth.
+          }
 >The code above demonstrate how to share image to Wechat, and please MAKE SURE that ImageData and ThumbData are set up before send request to Wechat.
 
 >More usage information: https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN&token=158793eeb9825cdd8b76eb46abee1defce52e51d
@@ -37,3 +37,5 @@ By using this SDK, please follow the steps(Assume that you are familar with Visu
     .your APPID
 
 NOTE that APPID can be found on your App Detail in https://open.weixin.qq.com
+
+-----------------------------------------------------------------------------------
