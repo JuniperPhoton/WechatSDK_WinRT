@@ -11,21 +11,21 @@ By using this SDK, please follow the steps(Assume that you are familar with Visu
 
     using MicroMsg;
 
-  try
+          try
             {
-                int scene = SendMessageToWX.Req.WXSceneChooseByUser; //发给微信朋友
-
-                var message = new WXImageMessage();
-                message.Title = "Title";
-               
-                message.ImageData=xxxx;
-                message.ThumbData=xxxx;
-                 
-                SendMessageToWX.Req req = new SendMessageToWX.Req(message, scene);
-                var api = WXAPIFactory.CreateWXAPI("your app id ");
-                await api.SendReq(req);
+            int scene = SendMessageToWX.Req.WXSceneChooseByUser; //发给微信朋友
+            
+            var message = new WXImageMessage();
+            message.Title = "Title";
+            
+            message.ImageData=xxxx;
+            message.ThumbData=xxxx;
+            
+            SendMessageToWX.Req req = new SendMessageToWX.Req(message, scene);
+            var api = WXAPIFactory.CreateWXAPI("your app id ");
+            await api.SendReq(req);
             }
             catch (WXException ex)
             {
-                //do sth.
+            //do sth.
             }
