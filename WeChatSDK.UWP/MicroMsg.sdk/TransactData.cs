@@ -235,7 +235,7 @@ namespace MicroMsg
             return true;
         }
 
-        public async static void WriteToFile(TransactData data, string fileName, string folderName)
+        public async static Task WriteToFile(TransactData data, string fileName, string folderName)
         {
             byte[] destinationArray = new byte[0x40];
             destinationArray[0] = 1;
@@ -243,8 +243,8 @@ namespace MicroMsg
             byte[] buffer2 = data.ToProto().ToByteArray();
             int length = buffer2.Length;
             Array.Copy(BitConverter.GetBytes(length), 0, destinationArray, 2, 4);
-            await FileUtil.writeToFile(fileName, folderName, destinationArray, true);
-            FileUtil.appendToFile(fileName, folderName, buffer2);
+            var result=await FileUtil.writeToFile(fileName, folderName, destinationArray, true);
+            var result2=await FileUtil.appendToFile(fileName, folderName, buffer2);
         }
     }
 

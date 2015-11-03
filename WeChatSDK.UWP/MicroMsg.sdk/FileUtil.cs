@@ -13,7 +13,7 @@ namespace MicroMsg
     public class FileUtil
     {
         // Methods
-        public async static void appendToFile(string fileName, string folderName, byte[] data)
+        public async static Task<bool> appendToFile(string fileName, string folderName, byte[] data)
         {
             try
             {
@@ -27,10 +27,11 @@ namespace MicroMsg
                         fileStream.Write(data, 0, data.Length);
                     }
                 }
-
+                return true;
             }
             catch (Exception)
             {
+                return false;
             }
         }
 
@@ -80,8 +81,6 @@ namespace MicroMsg
 
                         return true;
                     }
-
-
                 }
                 catch (Exception)
                 {
@@ -283,17 +282,10 @@ namespace MicroMsg
                 }
                 catch (Exception)
                 {
+                    return false;
                 }
             }
-            return false;
+            else return false;
         }
     }
-
-
-
-
-
-
-
-
 }

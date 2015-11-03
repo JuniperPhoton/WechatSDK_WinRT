@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -47,19 +48,25 @@ namespace MicroMsg
             await Launcher.LaunchUriAsync(new Uri("wechat:LaunchWechat?target=MainPage"));
         }
 
-        private async void sendOut(string filePath, string targetAppID)
+        private async void sendOut(string fileName, string targetAppID)
         {
-            StorageFolder local = await ApplicationData.Current.LocalFolder.GetFolderAsync("wechatsdk");
-            StorageFile bqfile = await local.GetFileAsync(filePath);
-            if (bqfile != null)
+            try
             {
-                bool flag1 = await Launcher.LaunchFileAsync(bqfile);
+                StorageFolder local = await ApplicationData.Current.LocalFolder.GetFolderAsync("wechatsdk");
+                StorageFile bqfile = await local.GetFileAsync(fileName);
+                if (bqfile != null)
+                {
+                    bool result = await Launcher.LaunchFileAsync(bqfile);
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
         }
 
         public async Task<bool> SendReqAsync(BaseReq request, string targetAppID = "wechat")
         {
-            int p = 0;
             try
             {
                 TransactData data;
@@ -71,7 +78,6 @@ namespace MicroMsg
                 {
                     throw new WXException(1, "targetAppID can't be empty.");
                 }
-                p = 1;
                 data = new TransactData();
                 data.Req = request;
                 data.AppID = this.mAppID;
@@ -79,38 +85,24 @@ namespace MicroMsg
                 data.SdkVersion = "1.5";
                 data.CheckContent = getCheckContent();
                 data.CheckSummary = getCheckSummary(data.CheckContent, data.SdkVersion, data.AppID);
-                p = 2;
                 if (string.IsNullOrEmpty(request.Transaction))
                 {
                     request.Transaction = getTransactionId();
                 }
 
                 var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("wechatsdk", CreationCollisionOption.OpenIfExists);
-                p = 3;
                 string fileName = "wp." + targetAppID;
-                //if (await FileUtil.fileExists(fileName))
-                //{
-                //   await FileUtil.deleteFile(fileName);
-                //}
                 if (data.ValidateData(false))
                 {
-                    try
-                    {
-                        p = 4;
-                        TransactData.WriteToFile(data, fileName, "wechatsdk");
-                        this.sendOut(fileName, targetAppID);
-                        return true;
-                    }
-                    catch (Exception exception)
-                    {
-                        throw new WXException(0, exception.Message);
-                    }
+                    await TransactData.WriteToFile(data, fileName, "wechatsdk");
+                    this.sendOut(fileName, targetAppID);
+                    return true;
                 }
-                return false;
+                else return false;
             }
-            catch (Exception e)
+            catch (Exception e1)
             {
-                return false;
+                throw new WXException(1,e1.Message);
             }
         }
 
@@ -150,7 +142,7 @@ namespace MicroMsg
             {
                 try
                 {
-                    TransactData.WriteToFile(data, fileName, "wechatsdk");
+                    await TransactData.WriteToFile(data, fileName, "wechatsdk");
                     this.sendOut(fileName, targetAppID);
                     return true;
                 }
