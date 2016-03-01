@@ -34,9 +34,11 @@ By using this SDK, please follow the steps(Assume that you are familar with Visu
 
 >More usage information: https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN&token=158793eeb9825cdd8b76eb46abee1defce52e51d
 
-4.Open your Package.appxmanifest and switch to Declarations:Add file type associations and add two file types:
-    .wechatapp
+4.Open your Package.appxmanifest and switch to Declarations:Add file type associations and add this type:
+
     .your APPID
+    
+this operation can let WeChat return to your app. 
 
 NOTE that APPID can be found on your App Detail in https://open.weixin.qq.com
 
